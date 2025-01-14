@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de recherche</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #0078d4;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #005a9e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Formulaire de recherchedfs</h1>
+        <form id="searchForm">
+            <input type="text" id="keyword" name="q" placeholder="Entrez un mot-clé..." required>
+            <button type="submit">Rechercher</button>
+        </form>
+    </div>
+
+    <script>
+        // Affiche un message au chargement de la page
+        console.log("Page chargée avec succès.");
+
+        // Gestion de la soumission du formulaire
+        document.getElementById('searchForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Empêche la soumission par défaut du formulaire
+
+            // Récupère la valeur du champ de recherche
+            const keyword = document.getElementById('keyword').value;
+            console.log("Mot-clé saisi :", keyword);
+
+            // Construit l'URL de redirection avec le mot-clé
+            const baseUrl = "https://mairielabege.sharepoint.com/sites/labege/Lists/quifaitquoi/AllItems.aspx";
+            const viewId = "f780f16f-c7c0-45e9-bd45-cb421c97ff06";
+            const env = "WebViewList";
+            const redirectUrl = `${baseUrl}?viewid=${viewId}&env=${env}&q=${encodeURIComponent(keyword)}`;
+
+            // Affiche l'URL de redirection dans la console
+            console.log("URL de redirection :", redirectUrl);
+
+            // Redirige l'utilisateur vers l'URL construite
+            window.location.href = redirectUrl;
+        });
+    </script>
+</body>
+</html>
