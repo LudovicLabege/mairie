@@ -27,38 +27,38 @@
 
     // Liste des questions
     const questions = [
-      "Comment évaluez-vous votre niveau de stress global ?",
-      "Ressentez-vous souvent de l'anxiété au travail ?",
-      "Avez-vous des difficultés à vous détendre le soir ?",
-      "Vous sentez-vous soutenu par vos collègues ?",
-      "Éprouvez-vous des difficultés à trouver un équilibre entre vie professionnelle et vie privée ?",
-      "Avez-vous l'impression d'avoir des objectifs clairs dans votre travail ?",
-      "Est-ce que vous vous sentez reconnu(e) par votre hiérarchie ?",
-      "Ressentez-vous souvent une pression pour atteindre vos objectifs ?",
-      "Comment évaluez-vous la qualité de vos relations sociales au travail ?",
-      "Est-ce que vous vous sentez compétent(e) dans votre poste ?",
-      "Ressentez-vous des symptômes de fatigue chronique ?",
-      "Êtes-vous satisfait(e) de la reconnaissance de vos efforts professionnels ?",
-      "Est-ce que vous avez l'impression de manquer de temps pour vous ?",
-      "Est-ce que vous vous sentez soutenu(e) par votre entourage personnel ?",
-      "Avez-vous des loisirs ou des activités extérieures qui vous aident à vous détendre ?",
-      "Avez-vous des difficultés à vous endormir à cause de pensées liées au travail ?",
-      "Est-ce que vous avez l'impression de réussir à gérer efficacement votre stress ?",
-      "Avez-vous déjà consulté un professionnel pour gérer votre stress ?",
-      "Ressentez-vous un manque de motivation au travail ?",
-      "Est-ce que vous vous sentez souvent débordé(e) par vos tâches ?",
-      "Avez-vous le sentiment d'être écouté(e) par votre entourage professionnel ?",
-      "Est-ce que vous pratiquez des exercices physiques régulièrement ?",
-      "Avez-vous le sentiment que vos efforts au travail sont bien valorisés ?",
-      "Est-ce que vous avez des projets personnels qui vous motivent ?",
-      "Ressentez-vous parfois une pression excessive de la part de vos supérieurs ?",
-      "Avez-vous confiance en vos capacités à résoudre les problèmes au travail ?",
-      "Est-ce que vous vous sentez satisfait(e) de votre équilibre vie professionnelle-vie personnelle ?",
-      "Ressentez-vous souvent une surcharge mentale liée au travail ?",
-      "Avez-vous l'impression de disposer de suffisamment de temps pour vous détendre ?",
-      "Est-ce que vous vous sentez isolé(e) au travail ?",
-      "Êtes-vous souvent en retard sur vos projets ou tâches ?",
-      "Est-ce que vous vous sentez motivé(e) à l'idée de travailler chaque matin ?"
+      "Dans mon travail, je dois apprendre des choses nouvelles?",
+      "Dans mon travail, j'effectue des tâches répétitives?",
+      "Mon travail me demande d'être créatif",
+      "Mon travail me permet souvent de prendre des décisions moi-même",
+      "Mon travail me demande un haut niveau de compétence",
+      "Dans ma tâche, j'ai très peu de liberté pour décider comment je fais mon travail",
+      "Dans mon travail, j'ai des activités variées",
+      "J'ai la posibilité d'influencer le déroulement de mon travail",
+      "J'ai l'occasion de développer mes compétences professionnelles",
+      "Mon travail me demande de travailler très vite",
+      "Mon travail demande de travailler intensément",
+      "On me demande d'effectuer une quantité de travail excessive",
+      "Je dispose du temps nécessaire pour effectuer correctement mon travail",
+      "Je reçois des ordres contradictoires de la part d'autres personnes",
+      "Mon travail nécessite de longues périodes de concentration intense",
+      "Mes tâches sont souvent interrompues avant d'être achevées, nécessitant de les reprendre plus tard",
+      "Mon travail est très bousculé",
+      "Attendre le travail de collègues ralentit souvent mon propre travail",
+      "Mon supérieur se sent concerné par le bien-être de ses subourdonnés",
+      "Mon supérieur prête attention à ce que je dis",
+      "Mon supérieur m'aide à mener ma tâche à bien",
+      "Mon supérieur réussit facilement à faire collaborer ses subordonnés",
+      "Les collègues avec qui je travaille sont des gens professionnellement compétents",
+      "Les collègues avec qui je travaille me manifestent de l'intérêt",
+      "Les collègues avec qui je travaille sont amicaux",
+      "Les collègues avec qui je travaille m'aident à mener les tâches à bien",
+      "On me traite injustement dans mon travail",
+      "Ma sécurité d'emploi est menacée",
+      "Ma position professionnelle actuelle correspond bien à ma formation",
+      "Vu tous les efforts, je reçois le respect et l'estime que je mérite à mon travail",
+      "Vu tous les efforts, mes perspectives de promotion sont satisfaisantes",
+      "Vu tous les efforts, mon salaire est satisfaisant"
     ];
 
     // Génère les questions 4 à 35 (total 32 questions)
@@ -66,10 +66,10 @@
       const div = document.createElement("div");
       div.className = "question";
       div.innerHTML = `<p>${questions[i]}</p>
-        <label><input type="radio" name="q${i + 4}" value="1"> Très faible</label><br>
-        <label><input type="radio" name="q${i + 4}" value="2"> Faible</label><br>
-        <label><input type="radio" name="q${i + 4}" value="3"> Moyen</label><br>
-        <label><input type="radio" name="q${i + 4}" value="4"> Très élevé</label>`;
+        <label><input type="radio" name="q${i + 4}" value="1">Pas du tout d’accord</label><br>
+        <label><input type="radio" name="q${i + 4}" value="2">Pas d’accord</label><br>
+        <label><input type="radio" name="q${i + 4}" value="3">D’accord</label><br>
+        <label><input type="radio" name="q${i + 4}" value="4">Tout à fait d’accord</label>`;
       form.appendChild(div);
     }
 
@@ -99,65 +99,46 @@
       const ld = ad + uc;
       const ss = ssph + sspc; // approximation avec les 2 dernières questions
 
-      // Affichage valeurs choisies
-      alert(`Réponses :
-- Question 4 : ${q[0]}
-- Question 7 : ${q[3]}
-- Question 9 : ${q[5]}`);
 
       // Résumé des résultats
-      alert(`✅ Résultats :
-- ad = ${ad}
-- uc = ${uc}
-- dp = ${dp}
-- ld = ${ld}
-- ssph = ${ssph}
-- sspc = ${sspc}
-- reconn = ${reconn}
-- ss = ${ss}`);
+
 
       // Tests conditionnels
       if (ld < 70 && dp >= 21) {
-        alert("🧠 SUJET STRESSÉ");
+        message=message+"SUJET STRESSÉ \n";
       } else {
-        alert("SUJET NON STRESSÉ");
+         message=message+"SUJET NON STRESSÉ \n";
       }
 
       if (ld >= 70 && dp >= 21) {
-        alert("💪 SUJET ACTIF");
+        message=message+"SUJET ACTIF \n";
       } else {
-        alert("SUJET NON ACTIF");
+        message=message+"SUJET NON ACTIF \n";
       }
 
       if (ld < 70 && dp < 21) {
-        alert("😴 SUJET PASSIF");
+        message=message+"SUJET PASSIF \n";
       } else {
-        alert("SUJET NON PASSIF");
+        message=message+"SUJET NON PASSIF \n";
       }
 
       if (ld >= 70 && dp < 21) {
-        alert("🌿 SUJET DÉTENDU");
+        message=message+"SUJET DÉTENDU \n";
       } else {
-        alert("SUJET NON DÉTENDU");
+        message=message+"SUJET NON DÉTENDU \n";
       }
 
       if (ss > 24) {
-        alert("🤝 Sujet soutenu socialement");
+        message=message+"Sujet soutenu socialement \n";
       } else {
-        alert("Sujet non soutenu socialement");
+        message=message+"Sujet non soutenu socialement \n";
       }
-
-      // Affichage HTML
-      document.getElementById("resultat").innerHTML =
-        `✅ <strong>ad</strong> = ${ad}<br>
-         ✅ <strong>uc</strong> = ${uc}<br>
-         ✅ <strong>dp</strong> = ${dp}<br>
-         ✅ <strong>ld</strong> = ${ld}<br>
-         ✅ <strong>ssph</strong> = ${ssph}<br>
-         ✅ <strong>sspc</strong> = ${sspc}<br>
-         ✅ <strong>reconn</strong> = ${reconn}<br>
-         ✅ <strong>ss</strong> = ${ss}`;
+	
+	
+    
+     alert(message);
     });
+
   </script>
 </body>
 </html>
