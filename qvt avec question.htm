@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Formulaire 32 Questions</title>
+  <title>Questionnaire agent baromètre</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -25,7 +25,7 @@
   <script>
     const form = document.getElementById("quizForm");
 
-    // Liste des questions
+
     const questions = [
       "Dans mon travail, je dois apprendre des choses nouvelles?",
       "Dans mon travail, j'effectue des tâches répétitives?",
@@ -92,18 +92,17 @@
       // Calculs
       const ad = 4 * (q[3] + (5 - q[5]) + q[7]); // question7, (5 - question9), question11
       const uc = 2 * (q[0] + (5 - q[1]) + q[2] + q[4] + q[6] + q[8]); // question4, 5, 6, 8, 10, 12
-      const dp = q[9] + q[10] + q[11] + (5 - q[12]) + q[13] + q[14] + q[15] + q[16] + q[17]; // question13 → question21
+      const dp = q[9] + q[10] + q[11] + (5 - q[12]) + q[13] + q[14] + q[15] + q[16] + q[17]; // 
       const ssph = q[18] + q[19] + q[20] + q[21]; // question22 → question25
       const sspc = q[22] + q[23] + q[24] + q[25]; // question26 → question29
-      const reconn = (5 - q[26]) + (5 - q[27]) + q[28] + q[29] + q[30] + q[31]; // question30 → question35
+      const reconn = (5 - q[26]) + (5 - q[27]) + q[28] + q[29] + q[30] + q[31]; // 
       const ld = ad + uc;
       const ss = ssph + sspc; // approximation avec les 2 dernières questions
 	let message = "Résultats :\n";
 	
-      // Résumé des résultats
 
 
-      // Tests conditionnels
+
       if (ld < 70 && dp >= 21) {
         message=message+"SUJET STRESSÉ \n";
       } else {
@@ -133,7 +132,12 @@
       } else {
         message=message+"Sujet non soutenu socialement \n";
       }
-	
+
+      if (reconn <= 46) {
+        message=message+"Sujet non reconnu dans son travail \n";
+      } else {
+        message=message+"Sujet reconnu dans son travail  \n";
+      }	
 	
     
      alert(message);
